@@ -17,6 +17,7 @@ namespace DemoAVK
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration
