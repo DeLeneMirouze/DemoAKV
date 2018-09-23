@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAVK", "DemoAVK\DemoAVK.csproj", "{465362D8-FA75-4948-946E-0E85C9F44652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAVK", "DemoAVK\DemoAVK.csproj", "{465362D8-FA75-4948-946E-0E85C9F44652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAVK2", "DemoAVK2\DemoAVK2.csproj", "{9D4CCFE5-FACE-4F7F-9549-F257AC2A2F48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAVK2", "DemoAVK2\DemoAVK2.csproj", "{9D4CCFE5-FACE-4F7F-9549-F257AC2A2F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAKV3", "DemoAKV3\DemoAKV3.csproj", "{3D1F0584-2779-45C4-896D-F4AB5A448003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9D4CCFE5-FACE-4F7F-9549-F257AC2A2F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D4CCFE5-FACE-4F7F-9549-F257AC2A2F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D4CCFE5-FACE-4F7F-9549-F257AC2A2F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1F0584-2779-45C4-896D-F4AB5A448003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1F0584-2779-45C4-896D-F4AB5A448003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1F0584-2779-45C4-896D-F4AB5A448003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1F0584-2779-45C4-896D-F4AB5A448003}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
