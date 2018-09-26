@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#region using
+using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using MyVault.Utils;
+#endregion
 
 namespace MyVault.AccessToken
 {
@@ -21,12 +19,11 @@ namespace MyVault.AccessToken
         /// <summary>
         /// Constructeur
         /// </summary>
-        /// <param name="contextParam">Doit fournir un TenantId, ClientId et un secret</param>
-        public AzureADAccessToken(IVaultContextParam contextParam)
+        public AzureADAccessToken()
         {
-            _clientId = contextParam.GetClientId();
-            _tenant = contextParam.GetTenant();
-            _secret = contextParam.GetSecret();
+            _clientId = ConfigurationManager.AppSettings["application.id"];
+            _tenant = ConfigurationManager.AppSettings["tenant.id"];
+            _secret = ConfigurationManager.AppSettings["application.secret"];
         }
         #endregion
 

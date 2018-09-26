@@ -1,4 +1,6 @@
 ﻿#region using
+using System.Collections.Generic;
+using System.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -20,12 +22,11 @@ namespace MyVault.AccessToken
         /// <summary>
         /// Constructeur
         /// </summary>
-        /// <param name="contextParam">Doit fournir un TenantId, ClientId et un Thumbprint</param>
-        public CertificateAccessTokenService(IVaultContextParam contextParam)
+        public CertificateAccessTokenService()
         {
-            _clientId = contextParam.GetClientId();
-            _thumbprint = contextParam.GetThumprint();
-            _tenant = contextParam.GetTenant();
+            _clientId = ConfigurationManager.AppSettings["application.id"];
+            _tenant = ConfigurationManager.AppSettings["tenant.id"];
+            _thumbprint = ConfigurationManager.AppSettings["application.thumbprint"];
         }
         #endregion
 
@@ -72,6 +73,12 @@ namespace MyVault.AccessToken
         #endregion
 
         #region FindCertificate (private)
+        private static object _lock = new object();
+        /// <summary>
+        /// Cache
+        /// </summary>
+        private static Dictionary<string, X509Certificate2> loadedCertificatePfx = new Dictionary<string, X509Certificate2>();
+
         /// <summary>
         /// Recherche un certificat dans les différents magasins à partir de son empreinte
         /// </summary>
@@ -80,19 +87,26 @@ namespace MyVault.AccessToken
         private X509Certificate2 FindCertificate(string thumprint)
         {
             X509Certificate2 pfx;
-
-            // on recherche tout d'abord dans le magasin de l'utilisateur
-            pfx = CertificateHelper
-                .FindCertificateByThumbprint(thumprint, StoreLocation.CurrentUser)[0];
-
+            loadedCertificatePfx.TryGetValue(thumprint, out pfx);
             if (pfx == null)
             {
-                // pas trouvé
-                // on cherche alors dans le magasin de l'ordinateur local
-                pfx = CertificateHelper
-                    .FindCertificateByThumbprint(thumprint, StoreLocation.LocalMachine)[0];
-            }
+                lock (_lock)
+                {
+                    loadedCertificatePfx.TryGetValue(thumprint, out pfx);
 
+                    // on recherche tout d'abord dans le magasin de l'utilisateur
+                    pfx = CertificateHelper
+                            .FindCertificateByThumbprint(thumprint, StoreLocation.CurrentUser)[0];
+
+                    if (pfx == null)
+                    {
+                        // pas trouvé
+                        // on cherche alors dans le magasin de l'ordinateur local
+                        pfx = CertificateHelper
+                                .FindCertificateByThumbprint(thumprint, StoreLocation.LocalMachine)[0];
+                    }
+                }
+            }
             return pfx;
         }
         #endregion
