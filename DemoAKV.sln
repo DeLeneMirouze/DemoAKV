@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAVK2", "DemoAVK2\DemoAV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAKV3", "DemoAKV3\DemoAKV3.csproj", "{3D1F0584-2779-45C4-896D-F4AB5A448003}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVault", "MyVault\MyVault.csproj", "{557ADA83-DD5A-4E33-A35A-B4FC75B67631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3D1F0584-2779-45C4-896D-F4AB5A448003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D1F0584-2779-45C4-896D-F4AB5A448003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D1F0584-2779-45C4-896D-F4AB5A448003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557ADA83-DD5A-4E33-A35A-B4FC75B67631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557ADA83-DD5A-4E33-A35A-B4FC75B67631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557ADA83-DD5A-4E33-A35A-B4FC75B67631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557ADA83-DD5A-4E33-A35A-B4FC75B67631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
